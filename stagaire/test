@@ -1,0 +1,307 @@
+function validateForm() {
+  var x = document.forms["formName"]["fieldName1"].value;
+  if (x == "") {
+    alert("Champ requis");
+    return false;
+  }
+  
+  var y = document.forms["formName"]["fieldName2"].value;
+  if (y == "") {
+    alert("Champ requis");
+    return false;
+  }
+  
+  // Continuez la validation pour d'autres champs ...
+  
+  return true;
+}
+
+
+<form name="formName" onsubmit="return validateForm()">
+  <!-- Les champs de votre formulaire ici -->
+  <input type="submit" value="Envoyer">
+</form>
+
+
+/*
+<form id="form">
+  <label for="username">Nom d'utilisateur :</label>
+  <input type="text" id="username" name="username">
+  <br><br>
+  <label for="email">Email :</label>
+  <input type="email" id="email" name="email">
+  <br><br>
+  <label for="password">Mot de passe :</label>
+  <input type="password" id="password" name="password">
+  <br><br>
+  <input type="submit" value="Envoyer">
+</form>
+
+<script>
+const form = document.getElementById("form");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  if (!username) {
+    alert("Le nom d'utilisateur est requis");
+  } else if (!email) {
+    alert("L'email est requis");
+  } else if (!password) {
+    alert("Le mot de passe est requis");
+  } else {
+    form.submit();
+  }
+});
+</script>
+
+
+validation d'un champ numerique
+
+function isNumeric(input) {
+  return !isNaN(parseFloat(input)) && isFinite(input);  appele fonction 
+}
+
+var userInput = document.getElementById("CIN").value;
+
+if (isNumeric(CIN)) {
+  console.log("Le champ est numérique");
+} else {
+  console.log("Le champ n'est pas numérique");
+}
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <script>
+      function validerNombre(champ) {
+        if (isNaN(champ.value)) {
+          alert("Le champ doit être un nombre");
+          champ.value = "";
+          champ.focus();
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="nombre" onblur="validerNombre(this)">
+      <input type="submit" value="Envoyer">
+    </form>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+<?php
+// Vérifie si l'email est valide
+if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+   // Si l'email est valide, stockez-le dans une variable
+   $email = $_POST['email'];
+   // Faites quelque chose avec l'email, comme l'enregistrer dans une base de données
+} else {
+   // Si l'email n'est pas valide, affichez un message d'erreur à l'utilisateur
+   echo "L'email que vous avez entré n'est pas valide.";
+}
+?>
+
+
+
+
+/*
+function ValidateEmail(inputText)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+alert("Valid email address!");
+document.form1.text1.focus();
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+document.form1.text1.focus();
+return false;
+}
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemple de validation d'email</title>
+</head>
+<body>
+	<form>
+		<label for="email">Email :</label>
+		<input type="email" id="email" name="email">
+		<button type="submit">Envoyer</button>
+	</form>
+
+	<script>
+		// Récupération du champ email et du bouton de soumission
+		var emailField = document.getElementById("email");
+		var submitButton = document.querySelector("button[type=submit]");
+
+		// Fonction de validation de l'email
+		function validateEmail(email) {
+			var re = /\S+@\S+\.\S+/;
+			return re.test(email);
+		}
+
+		// Ajout d'un écouteur d'événement sur le bouton de soumission
+		submitButton.addEventListener("click", function(event) {
+			if (!validateEmail(emailField.value)) {
+				event.preventDefault();
+				alert("Veuillez entrer une adresse email valide.");
+			}
+		});
+	</script>
+</body>
+</html>
+
+
+code 2
+<body>
+  <h2 style="text-align: center;">Formulaire d'inscription</h2>
+  <form name="RegForm" action="/submit.php" onsubmit="return W3docs()" method="post" class="w3docs">
+    <div>
+      <label for="Nom">Nom:</label>
+      <input type="text" id="Nom" size="60" name="Nom" />
+    </div>
+    <br />
+    <div>
+      <label for="adresse">Adresse:</label>
+      <input type="text" id="adresse" size="60" name="Adresse" />
+    </div>
+    <br />
+    <div>
+      <label for="E-mail" l>Adresse électronique:</label>
+      <input type="text" id="E-mail" size="60" name="Email" />
+    </div>
+    <br />
+    <div>
+      <label for="Mot de passe">Mot de passe:</label>
+      <input type="text" id="Mot de passe" size="60" name="Mot de passe" />
+    </div>
+    <br />
+    <div>
+      <label for="Téléphone">Téléphone: </label>
+      <input type="text" id="Téléphone" size="60" name="Téléphone" />
+    </div>
+    <br />
+    <div>
+      <label>Sélectionnez le Livre</label>
+      <select type="text" value="" name="Sujet">
+        <option></option>
+        <option>HTML</option>
+        <option>CSS</option>
+        <option>PHP</option>
+        <option>JavaScript</option>
+      </select>
+    </div>
+    <br />
+    <div>
+      <label for="commentaire">Commentaires: </label>
+      <textarea cols="62" id="commentaire" rows="10" name="Commentaire"></textarea>
+    </div>
+    <div class="buttons">
+      <input type="submit" value="Envoyer" name="Envoyer" />
+      <input type="reset" value="Rénit" name="Reset" />
+    </div>
+  </form>
+</body>
+function W3docs()                                    
+{ 
+    var name = document.forms["RegForm"]["Nom"];               
+    var email = document.forms["RegForm"]["Email"];    
+    var phone = document.forms["RegForm"]["Téléphone"];  
+    var what =  document.forms["RegForm"]["Sujet"];  
+    var password = document.forms["RegForm"]["Mot de passe"];  
+    var address = document.forms["RegForm"]["Adresse"];  
+    var comment = document.forms["RegForm"]["Commentaire"];  
+
+    if (name.value == "")                                  
+    { 
+        alert("Mettez votre nom."); 
+        name.focus(); 
+        return false; 
+    }    
+    if (address.value == "")                               
+    { 
+        alert("Mettez votre adresse."); 
+        address.focus(); 
+        return false; 
+    }        
+    if (email.value == "")                                   
+    { 
+        alert("Mettez une adresse email valide."); 
+        email.focus(); 
+        return false; 
+    }    
+    if (email.value.indexOf("@", 0) < 0)                 
+    { 
+        alert("Mettez une adresse email valide."); 
+        email.focus(); 
+        return false; 
+    }    
+    if (email.value.indexOf(".", 0) < 0)                 
+    { 
+        alert("Mettez une adresse email valide."); 
+        email.focus(); 
+        return false; 
+    }    
+    if (phone.value == "")                           
+    { 
+        alert("Mettez votre numéro de téléphone."); 
+        phone.focus(); 
+        return false; 
+    }  
+
+
+
+
+
+
+
+    cod 3
+
+    function validateEmail() {
+      var email = document.getElementById("email").value;
+      var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    
+      if (email.match(pattern)) {
+        return true;
+      } else {
+        alert("Adresse email invalide !");
+        return false;
+      }
+    }
+    
+verification de formulaire
+    document.getElementById("mon-formulaire").addEventListener("submit", function(event) {
+      if (!validateEmail()) {
+        event.preventDefault();
+      }
+    });
